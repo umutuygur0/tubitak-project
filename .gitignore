@@ -73,3 +73,6 @@ crashlytics-build.properties
 
 # Unity 6.x solution format
 *.slnx
+
+# Android build temp (Unity 6)
+/.utmp/
