@@ -12,5 +12,4 @@ EditorBuildSettings:
     path: Assets/Scenes/FFK Sample Scene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
-    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: de1d8e125215fdc4ebc4e10f5caab977, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

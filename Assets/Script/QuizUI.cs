@@ -42,10 +42,14 @@ public class QuizUI : MonoBehaviour
     private int _idx;
     private int _score;
     private bool _locked;
+    private bool _started;
 
     private void Awake()
     {
-        gameObject.SetActive(false);
+        // Panel sahnede kapalı başlarsa Awake, StartQuiz içindeki SetActive(true) sırasında çalışır;
+        // o durumda paneli tekrar kapatmamak için _started kontrol ediliyor.
+        if (!_started)
+            gameObject.SetActive(false);
 
         if (btnA) btnA.onClick.AddListener(() => Choose(0));
         if (btnB) btnB.onClick.AddListener(() => Choose(1));
@@ -64,6 +68,7 @@ public class QuizUI : MonoBehaviour
         _idx = 0;
         _score = 0;
         _locked = false;
+        _started = true;
 
         gameObject.SetActive(true);
         Show(_idx);

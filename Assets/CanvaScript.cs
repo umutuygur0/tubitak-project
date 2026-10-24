@@ -8,6 +8,12 @@ public class ShowCanvasAfterDelay : MonoBehaviour
 
     void Start()
     {
+        if (targetCanvas == null)
+        {
+            Debug.LogWarning($"{name}: targetCanvas atanmadı, ShowCanvasAfterDelay devre dışı.", this);
+            return;
+        }
+
         // Başlangıçta Canvas kapalı olsun
         targetCanvas.SetActive(false);
         // Belirtilen süre sonra ShowCanvas metodunu çağır
