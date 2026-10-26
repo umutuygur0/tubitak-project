@@ -51,34 +51,76 @@ Claude Code then connects to `http://localhost:8080/mcp`.
 
 ## Backend & Database Setup
 
-To run this project locally:
+This project uses **ASP.NET Core Web API**, **Entity Framework Core**, and **PostgreSQL** to record in-game player choices and response times for psychological analysis.
 
-1. Install PostgreSQL
+---
 
-2. Create a database:
-   UnityVRDecisionSave
+### Prerequisites
+* [.NET 8 / .NET 9 / .NET 10 SDK](https://dotnet.microsoft.com/)
+* [PostgreSQL 15+](https://www.postgresql.org/) (and pgAdmin / DBeaver)
+* Visual Studio 2022 (with ASP.NET & Web Development workload)
 
-3. Run the following SQL:
+---
 
-CREATE TABLE user_choices (
-id SERIAL PRIMARY KEY,
-user_id VARCHAR(100),
-event_id VARCHAR(100),
-selected_option INT,
-selected_text VARCHAR(255),
-created_at TIMESTAMP DEFAULT NOW(),
-UNIQUE(user_id, event_id)
-);
+### Setup Steps
 
-4. Open the backend project and update the connection string:
+#### 1. Database Creation
+Open pgAdmin / DBeaver or PostgreSQL CLI and create a new database:
+```sql
+CREATE DATABASE "UnityQuizDecision";
 
-Host=localhost;Port=5432;Username=postgres;Password=YOUR_PASSWORD;Database=UnityVRDecisionSave
+### 2. Configure Local User Secrets (Recommended)
+To keep your database credentials secure and out of version control, use User Secrets in Visual Studio instead of editing appsettings.json:
 
-5. Run the API (Visual Studio)
+Right-click the UnityChoiceSave (Web API) project in Visual Studio.
 
-6. Run the Unity project
+Select Manage User Secrets.
 
-API endpoint used:
-http://localhost:5136/api/Choices
+Paste the following configuration with your local PostgreSQL password:
 
-> On a phone `localhost` points to the phone itself — use the PC's LAN IP (e.g. `http://192.168.1.20:5136`) or a deployed HTTPS URL.
+JSON
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=localhost;Port=5432;Database=UnityQuizDecision;Username=postgres;Password=YOUR_POSTGRES_PASSWORD"
+  }
+}
+
+### 3. Apply Database Migrations (EF Core)
+The project uses Entity Framework Core Migrations managed inside the UnityChoiceSave.DataAccess project layer.
+
+Open Package Manager Console in Visual Studio (Tools > NuGet Package Manager > Package Manager Console).
+
+Set Default project dropdown to UnityChoiceSave.DataAccess.
+
+Run the following command to create the database schema automatically:
+
+Bash
+update-database
+(Note: If setting up from scratch without existing migrations, run add-migration InitialCreate first).
+
+Running the Project
+1. Start the Backend API
+Press F5 in Visual Studio to run the API.
+
+The Swagger documentation UI will open at:https://localhost:7154/swagger (or your assigned local port).
+
+2. Run the Unity Project
+Open the Unity project.
+
+Make sure the AnalyticsManager.cs script has the correct local endpoint configured (e.g., https://localhost:7154/api/Decisions/save).
+
+Press Play in Unity and press T to test sending decision data directly to PostgreSQL.
+
+API Endpoints
+POST /api/Decisions/save
+
+Payload Example:
+
+JSON
+{
+  "childId": 1,
+  "scenarioId": "playground_sharing_01",
+  "questionId": "q_01",
+  "selectedOption": "option_b",
+  "responseTimeSeconds": 3.8
+}

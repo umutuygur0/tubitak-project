@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "UnityChoiceSave.Controllers.DecisionsController",
+    "Method": "SaveDecision",
+    "RelativePath": "api/Decisions/save",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "log",
+        "Type": "UnityChoiceSave.Models.DecisionLog",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

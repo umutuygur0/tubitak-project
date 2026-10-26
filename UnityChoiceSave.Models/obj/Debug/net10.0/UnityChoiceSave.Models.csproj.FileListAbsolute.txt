@@ -1,0 +1,12 @@
+C:\GitTalib\tubitak-project\UnityChoiceSave.Models\bin\Debug\net10.0\UnityChoiceSave.Models.deps.json
+C:\GitTalib\tubitak-project\UnityChoiceSave.Models\bin\Debug\net10.0\UnityChoiceSave.Models.dll
+C:\GitTalib\tubitak-project\UnityChoiceSave.Models\bin\Debug\net10.0\UnityChoiceSave.Models.pdb
+C:\GitTalib\tubitak-project\UnityChoiceSave.Models\obj\Debug\net10.0\UnityChoiceSave.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\GitTalib\tubitak-project\UnityChoiceSave.Models\obj\Debug\net10.0\UnityChoiceSave.Models.AssemblyInfoInputs.cache
+C:\GitTalib\tubitak-project\UnityChoiceSave.Models\obj\Debug\net10.0\UnityChoiceSave.Models.AssemblyInfo.cs
+C:\GitTalib\tubitak-project\UnityChoiceSave.Models\obj\Debug\net10.0\UnityChoiceSave.Models.csproj.CoreCompileInputs.cache
+C:\GitTalib\tubitak-project\UnityChoiceSave.Models\obj\Debug\net10.0\UnityChoiceSave.Models.sourcelink.json
+C:\GitTalib\tubitak-project\UnityChoiceSave.Models\obj\Debug\net10.0\UnityChoiceSave.Models.dll
+C:\GitTalib\tubitak-project\UnityChoiceSave.Models\obj\Debug\net10.0\refint\UnityChoiceSave.Models.dll
+C:\GitTalib\tubitak-project\UnityChoiceSave.Models\obj\Debug\net10.0\UnityChoiceSave.Models.pdb
+C:\GitTalib\tubitak-project\UnityChoiceSave.Models\obj\Debug\net10.0\ref\UnityChoiceSave.Models.dll

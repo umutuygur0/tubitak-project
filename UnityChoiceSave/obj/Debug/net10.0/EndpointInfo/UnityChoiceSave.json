@@ -1,0 +1,92 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "UnityChoiceSave",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Decisions/save": {
+      "post": {
+        "tags": [
+          "Decisions"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DecisionLog"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DecisionLog"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DecisionLog"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DecisionLog": {
+        "required": [
+          "childId",
+          "questionId",
+          "scenarioId",
+          "selectedOption"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "childId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "scenarioId": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "questionId": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "selectedOption": {
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string"
+          },
+          "responseTimeSeconds": {
+            "type": "number",
+            "format": "float"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Decisions"
+    }
+  ]
+}
